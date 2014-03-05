@@ -6,4 +6,5 @@ package org.bm.rules;
  * @author Baptiste Morin
  */
 public interface Rule {
+
 }
