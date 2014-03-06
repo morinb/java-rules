@@ -6,4 +6,26 @@
 
     <bean id="engine" class="org.bm.rules.impl.ProceduralEngine" />
 
+    <bean id="test-Entry" class="org.bm.rules.impl.StringEntry">
+        <constructor-arg>
+            <value type="java.lang.String">Bonjour, je suis une phrase de test !</value>
+        </constructor-arg>
+
+        <!--name="entry" value="Bonjour, je suis une phrase de test !" />-->
+    </bean>
+
+    <bean id="test-RuleLoader" class="org.bm.rules.impl.GroovyRulesLoader">
+        <constructor-arg>
+            <list>
+                <ref bean="groovyClassDirectories"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="groovyClassDirectories" class="java.io.File">
+        <constructor-arg>
+            <value type="java.lang.String">src/main/resources/rules</value>
+        </constructor-arg>
+    </bean>
+
 </beans>
