@@ -27,7 +27,7 @@ class SimpleRule implements Rule {
                 return null
             }
         }, new KeyPair<Entry, Rule>(entry, this))
-        return null
+        return result
     }
 
     @Override
