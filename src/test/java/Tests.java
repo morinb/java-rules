@@ -51,7 +51,7 @@ public class Tests {
 
       assertEquals(key1, key2);
 
-      assertEquals("first", key1.getFirst());
+      assertEquals("firset", key1.getFirst());
       assertEquals("second", key1.getSecond());
 
    }
@@ -66,7 +66,7 @@ public class Tests {
       System.out.println("URI: "+url.toURI().toString());
       System.out.println("File: "+directory.getAbsolutePath());
 
-      GroovyRulesLoader grl = new GroovyRulesLoader(new File[]{directory});
+      RuleLoader grl = new GroovyRulesLoader(new File[]{directory});
 
       Collection<Rule> rules = grl.load();
 
