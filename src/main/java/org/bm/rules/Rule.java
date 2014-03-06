@@ -14,7 +14,7 @@ public interface Rule {
    /**
     * Apply the rule to the input parameter, and produces a <code>Result</code>
     *
-    * @param entry
+    * @param entry The entry on which the rule will be applied.
     * @return <code>Result</code> that contains the
     */
    Result apply(Entry entry);
