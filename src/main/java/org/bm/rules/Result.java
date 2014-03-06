@@ -6,4 +6,9 @@ package org.bm.rules;
  * @author Baptiste Morin
  */
 public interface Result {
+
+   Status getStatus();
+
+   KeyPair<Entry, Rule> getEntryRuleKeyPair();
+
 }

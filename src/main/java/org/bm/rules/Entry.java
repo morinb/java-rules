@@ -9,10 +9,11 @@ import org.apache.log4j.Logger;
  */
 public interface Entry {
    Logger LOG = Logger.getLogger(Entry.class);
+
    /**
-    *
-    * @param rule the <code>Rule</code> that could be applied to this entry if the method returns <code>true</code>.
-    * @return <code>true</code> if the rule is allowed for this entry.
+    * Gets the Entry's content that will be checked by the Rule.
+    * @return the Entry's content.
     */
-   boolean supports(Rule rule);
+   String getContent();
+
 }

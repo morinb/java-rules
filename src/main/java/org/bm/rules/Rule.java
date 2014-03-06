@@ -18,4 +18,10 @@ public interface Rule {
     * @return <code>Result</code> that contains the
     */
    Result apply(Entry entry);
+
+   /**
+    *
+    * @return
+    */
+   String getDescription();
 }

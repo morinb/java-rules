@@ -15,14 +15,14 @@ public interface Engine {
 
 
    /**
-    * Process the inputs by applying rules on them.
+    * Process the entries by applying rules on them.
     * The method return a <code>Map&lt;KeyPair&lt;Entry, Rule&gt;, Result&gt;</code>.
     *
-    * @param inputs <code>Collection&lt;Entry&gt;</code> contains the inputs to be checked.
-    * @param rules  <code>Collection&lt;Rule&gt;</code> the rules to apply on inputs
-    * @return <code>Map&lt;KeyPair&lt;Entry, Rule&gt;, Result&gt;</code> applies rules on inputs and produces results.
+    * @param entries <code>Collection&lt;Entry&gt;</code> contains the entries to be checked.
+    * @param rules  <code>Collection&lt;Rule&gt;</code> the rules to apply on entries
+    * @return <code>Map&lt;KeyPair&lt;Entry, Rule&gt;, Result&gt;</code> applies rules on entries and produces results.
     */
-   Map<KeyPair<Entry, Rule>, Result> process(Collection<Entry> inputs, Collection<Rule> rules);
+   Map<KeyPair<Entry, Rule>, Result> process(Collection<Entry> entries, Collection<Rule> rules);
 
    /**
     * Flag to let the engine knows if it should stop after first error or not.
