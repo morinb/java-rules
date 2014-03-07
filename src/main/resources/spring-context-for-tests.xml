@@ -28,4 +28,6 @@
         </constructor-arg>
     </bean>
 
+    <bean id="test-ResultFormatter" class="org.bm.rules.impl.DefaultResultFormatter" />
+
 </beans>
