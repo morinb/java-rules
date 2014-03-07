@@ -1,5 +1,6 @@
 package org.bm.rules.impl;
 
+import org.apache.commons.lang.StringUtils;
 import org.bm.rules.Entry;
 
 /**
@@ -15,5 +16,10 @@ public class StringEntry implements Entry {
    @Override
    public String getContent() {
       return entry;
+   }
+
+   @Override
+   public String toString() {
+      return getClass().getName() + "{" + StringUtils.abbreviate(entry, 25) + '}';
    }
 }

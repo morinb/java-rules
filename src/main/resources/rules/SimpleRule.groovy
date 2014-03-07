@@ -2,7 +2,6 @@ package rules
 
 import org.bm.rules.*
 import org.bm.rules.impl.DefaultResult
-
 /**
  *
  * @author Baptiste Morin
@@ -19,7 +18,7 @@ class SimpleRule implements Rule {
 
             @Override
             String getDescription() {
-                return "No problemo"
+                return "No problemo rule"
             }
 
             @Override
@@ -33,5 +32,10 @@ class SimpleRule implements Rule {
     @Override
     String getDescription() {
         return "Rule that does nothing"
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName();
     }
 }
