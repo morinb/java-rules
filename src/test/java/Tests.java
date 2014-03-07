@@ -10,6 +10,7 @@ import org.bm.rules.Engine;
 import org.bm.rules.Entry;
 import org.bm.rules.KeyPair;
 import org.bm.rules.Result;
+import org.bm.rules.ResultFormatter;
 import org.bm.rules.Rule;
 import org.bm.rules.RuleLoader;
 import org.bm.rules.impl.GroovyRulesLoader;
@@ -102,6 +103,9 @@ public class Tests {
 
          assertEquals("SimpleRule severity should have been 0", 0,  result.getStatus().getSeverity());
 
+         ResultFormatter resultFormatter = (ResultFormatter) context.getBean("test-ResultFormatter");
+
+         LOG.info(resultFormatter.format(result));
 
       } catch (IOException e) {
          e.printStackTrace();
