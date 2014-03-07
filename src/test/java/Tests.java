@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.bm.rules.Engine;
 import org.bm.rules.Entry;
 import org.bm.rules.KeyPair;
@@ -32,6 +33,8 @@ import static org.junit.Assert.assertNotNull;
 @ContextConfiguration(locations = {"/spring-context-for-tests.xml"})
 public class Tests {
 
+   Logger LOG = Logger.getLogger(Tests.class);
+
    @Autowired
    private Engine engine;
 
@@ -51,7 +54,7 @@ public class Tests {
 
       assertEquals(key1, key2);
 
-      assertEquals("firset", key1.getFirst());
+      assertEquals("first", key1.getFirst());
       assertEquals("second", key1.getSecond());
 
    }

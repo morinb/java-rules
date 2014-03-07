@@ -8,12 +8,8 @@
     <artifactId>java-rules</artifactId>
     <version>0.1.0.1</version>
     <url>none</url>
-<licenses>
-    <license>
-        <name>The Apache Software License, Version 2.0</name>
-        <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-    </license>
-</licenses>
+    <inceptionYear>2014</inceptionYear>
+
 
     <build>
         <plugins>
@@ -31,7 +27,6 @@
                     </includes>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
@@ -61,7 +56,6 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.4</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.groovy</groupId>
@@ -88,9 +82,7 @@
                 <artifactId>spring-tx</artifactId>
                 <version>3.2.5.RELEASE</version>
             </dependency>
-
         </dependencies>
-
     </dependencyManagement>
 
 
@@ -123,19 +115,32 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
         </dependency>
-        <!--<dependency>
-            <groupId>com.google.code.protoj</groupId>
-            <artifactId>protoj-nodep</artifactId>
-            <version>1.8.4</version>
-            <scope>test</scope>
-        </dependency>-->
     </dependencies>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:http://github.com/morinb/java-rules.git</connection>
+        <url>https://github.com/morinb/java-rules.git</url>
+    </scm>
 
 
     <developers>
         <developer>
+            <id>morinb</id>
             <name>Baptiste Morin</name>
             <email>morin.baptiste@gmail.com</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Paris</timezone>
         </developer>
     </developers>
 </project>
