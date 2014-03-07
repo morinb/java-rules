@@ -62,9 +62,6 @@ public class Tests {
       URL url = getClass().getResource("rules"); // Search in resources/rules directory
 
       File directory = new File(url.toURI());
-      System.out.println("URL: "+url.toString());
-      System.out.println("URI: "+url.toURI().toString());
-      System.out.println("File: "+directory.getAbsolutePath());
 
       RuleLoader grl = new GroovyRulesLoader(new File[]{directory});
 
