@@ -1,9 +1,9 @@
 package org.bm.rules;
 
+import org.apache.log4j.Logger;
+
 import java.util.Collection;
 import java.util.Map;
-
-import org.apache.log4j.Logger;
 
 /**
  * An Engine is the core of the Rules processing.

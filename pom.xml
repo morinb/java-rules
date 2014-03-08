@@ -6,7 +6,8 @@
 
     <groupId>org.bm</groupId>
     <artifactId>java-rules</artifactId>
-    <version>0.1.0.1</version>
+    <version>0.1.0.3</version>
+
     <url>none</url>
     <inceptionYear>2014</inceptionYear>
 

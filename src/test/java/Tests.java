@@ -1,10 +1,4 @@
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Collection;
-import java.util.Map;
-
+import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
 import org.bm.rules.Engine;
 import org.bm.rules.Entry;
@@ -14,6 +8,7 @@ import org.bm.rules.ResultFormatter;
 import org.bm.rules.Rule;
 import org.bm.rules.RuleLoader;
 import org.bm.rules.impl.GroovyRulesLoader;
+import org.bm.rules.impl.KeyPairImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +16,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.google.common.collect.Lists;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Collection;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -50,8 +50,8 @@ public class Tests {
 
    @Test
    public void testKeyPair() {
-      KeyPair<String, String> key1 = new KeyPair<String, String>("first", "second");
-      KeyPair<String, String> key2 = new KeyPair<String, String>("first", "second");
+      KeyPair<String, String> key1 = new KeyPairImpl<String, String>("first", "second");
+      KeyPair<String, String> key2 = new KeyPairImpl<String, String>("first", "second");
 
       assertEquals(key1, key2);
 
@@ -96,7 +96,7 @@ public class Tests {
          assertNotNull(results);
          Rule rule = sampleRules.iterator().next();
 
-         KeyPair<Entry, Rule> kp = new KeyPair<Entry, Rule>(sampleEntry, rule);
+         KeyPair<Entry, Rule> kp = new KeyPairImpl<Entry, Rule>(sampleEntry, rule);
 
          Result result = results.get(kp);
          assertNotNull(result);

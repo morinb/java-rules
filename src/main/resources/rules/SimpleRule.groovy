@@ -2,6 +2,8 @@ package rules
 
 import org.bm.rules.*
 import org.bm.rules.impl.DefaultResult
+import org.bm.rules.impl.KeyPair
+
 /**
  *
  * @author Baptiste Morin

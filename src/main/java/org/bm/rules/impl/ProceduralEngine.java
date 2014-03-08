@@ -1,40 +1,39 @@
 package org.bm.rules.impl;
 
-import java.util.Collection;
-import java.util.Map;
-
+import com.google.common.collect.Maps;
 import org.bm.rules.Engine;
 import org.bm.rules.Entry;
 import org.bm.rules.KeyPair;
 import org.bm.rules.Result;
 import org.bm.rules.Rule;
 
-import com.google.common.collect.Maps;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Baptiste Morin
  */
 public class ProceduralEngine implements Engine {
-   @Override
-   public Map<KeyPair<Entry, Rule>, Result> process(Collection<Entry> entries, Collection<Rule> rules) {
+    @Override
+    public Map<KeyPair<Entry, Rule>, Result> process(Collection<Entry> entries, Collection<Rule> rules) {
 
-      Map<KeyPair<Entry, Rule>, Result> results = Maps.newHashMap();
+        Map<KeyPair<Entry, Rule>, Result> results = Maps.newHashMap();
 
-      for(Entry entry : entries) {
-         for(Rule rule : rules) {
+        for (Entry entry : entries) {
+            for (Rule rule : rules) {
 
-            Result result = rule.apply(entry);
-            results.put(new KeyPair<Entry, Rule>(entry, rule), result);
+                Result result = rule.apply(entry);
+                results.put(new KeyPairImpl<Entry, Rule>(entry, rule), result);
 
-         }
+            }
 
-      }
+        }
 
-      return results;
-   }
+        return results;
+    }
 
-   @Override
-   public boolean stopAfterFirstError() {
-      return false;
-   }
+    @Override
+    public boolean stopAfterFirstError() {
+        return false;
+    }
 }

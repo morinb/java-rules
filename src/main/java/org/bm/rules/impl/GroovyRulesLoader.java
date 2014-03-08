@@ -1,17 +1,15 @@
 package org.bm.rules.impl;
 
+import com.google.common.collect.Lists;
+import groovy.lang.GroovyClassLoader;
+import org.bm.rules.Rule;
+import org.bm.rules.RuleLoader;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
-
-import org.bm.rules.Rule;
-import org.bm.rules.RuleLoader;
-
-import com.google.common.collect.Lists;
-
-import groovy.lang.GroovyClassLoader;
 
 /**
  * @author Baptiste Morin
