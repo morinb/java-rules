@@ -22,6 +22,11 @@ class SimpleRule implements Rule {
             }
 
             @Override
+            String getCode() {
+                return "STATUS_OK"
+            }
+
+            @Override
             String getDescription() {
                 return "No problemo rule"
             }
