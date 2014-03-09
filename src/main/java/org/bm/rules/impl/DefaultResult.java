@@ -9,7 +9,7 @@ import org.bm.rules.Status;
 /**
  * @author Baptiste Morin
  */
-public class DefaultResult implements Result {
+public final class DefaultResult implements Result {
    private Status status;
    private KeyPair<Entry, Rule> entryRuleKeyPair;
 
@@ -23,8 +23,18 @@ public class DefaultResult implements Result {
       return status;
    }
 
-   @Override
+    @Override
+    public void setStatus(Status status) {
+        throw new UnsupportedOperationException("DefaultResult class is immutable");
+    }
+
+    @Override
    public KeyPair<Entry, Rule> getEntryRuleKeyPair() {
       return entryRuleKeyPair;
    }
+
+    @Override
+    public void setEntryRuleKeyPair(KeyPair<Entry, Rule> entryRuleKeyPair) {
+        throw new UnsupportedOperationException("DefaultResult class is immutable");
+    }
 }

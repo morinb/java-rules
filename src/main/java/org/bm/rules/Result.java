@@ -7,8 +7,12 @@ package org.bm.rules;
  */
 public interface Result {
 
-   Status getStatus();
+    Status getStatus();
 
-   KeyPair<Entry, Rule> getEntryRuleKeyPair();
+    void setStatus(Status status);
+
+    KeyPair<Entry, Rule> getEntryRuleKeyPair();
+
+    void setEntryRuleKeyPair(KeyPair<Entry, Rule> entryRuleKeyPair);
 
 }
