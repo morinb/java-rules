@@ -1,8 +1,11 @@
 package rules
 
-import org.bm.rules.*
+import org.bm.rules.Entry
+import org.bm.rules.Result
+import org.bm.rules.Rule
+import org.bm.rules.Status
 import org.bm.rules.impl.DefaultResult
-import org.bm.rules.impl.KeyPair
+import org.bm.rules.impl.KeyPairImpl
 
 /**
  *
@@ -27,7 +30,7 @@ class SimpleRule implements Rule {
             String getPossibleResolution() {
                 return null
             }
-        }, new KeyPair<Entry, Rule>(entry, this))
+        }, new KeyPairImpl<Entry, Rule>(entry, this))
         return result
     }
 
