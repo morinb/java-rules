@@ -1,10 +1,11 @@
 package org.bm.rules.impl;
 
-import com.google.common.collect.Maps;
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.bm.rules.Entry;
 
-import java.util.Map;
+import com.google.common.collect.Maps;
 
 /**
  * @author Baptiste Morin
