@@ -53,4 +53,18 @@ class SimpleRule implements Rule {
     public String toString() {
         return getClass().getName();
     }
+
+    @Override
+    int compareTo(Rule o) {
+        // something is always greater than null.
+        if(o == null) {
+            return 1
+        }
+
+        if(this == o) {
+            return 0
+        }
+
+        return this.priority.compareTo(o.priority);
+    }
 }

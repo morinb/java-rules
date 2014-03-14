@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
  *
  * @author Baptiste Morin
  */
-public interface Rule {
+public interface Rule extends Comparable<Rule> {
     Logger LOG = Logger.getLogger(Rule.class);
 
     /**

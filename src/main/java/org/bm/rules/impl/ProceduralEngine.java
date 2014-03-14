@@ -14,21 +14,18 @@ import java.util.Map;
  * @author Baptiste Morin
  */
 public class ProceduralEngine implements Engine {
+
+
     @Override
     public Map<KeyPair<Entry, Rule>, Result> process(Collection<Entry> entries, Collection<Rule> rules) {
-
         Map<KeyPair<Entry, Rule>, Result> results = Maps.newHashMap();
 
         for (Entry entry : entries) {
             for (Rule rule : rules) {
-
                 Result result = rule.apply(entry);
                 results.put(new KeyPairImpl<Entry, Rule>(entry, rule), result);
-
             }
-
         }
-
         return results;
     }
 
