@@ -45,6 +45,11 @@ class SimpleRule implements Rule {
     }
 
     @Override
+    long getPriority() {
+        return 0
+    }
+
+    @Override
     public String toString() {
         return getClass().getName();
     }

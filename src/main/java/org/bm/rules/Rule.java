@@ -9,19 +9,25 @@ import org.apache.log4j.Logger;
  * @author Baptiste Morin
  */
 public interface Rule {
-   Logger LOG = Logger.getLogger(Rule.class);
+    Logger LOG = Logger.getLogger(Rule.class);
 
-   /**
-    * Apply the rule to the input parameter, and produces a <code>Result</code>
-    *
-    * @param entry The entry on which the rule will be applied.
-    * @return <code>Result</code> that contains the
-    */
-   Result apply(Entry entry);
+    /**
+     * Apply the rule to the input parameter, and produces a <code>Result</code>
+     *
+     * @param entry The entry on which the rule will be applied.
+     * @return <code>Result</code> that contains the
+     */
+    Result apply(Entry entry);
 
-   /**
-    *
-    * @return
-    */
-   String getDescription();
+    /**
+     * @return
+     */
+    String getDescription();
+
+
+    /**
+     * @return the priority to order the rules.
+     */
+    long getPriority();
+
 }
