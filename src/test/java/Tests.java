@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -70,7 +69,7 @@ public class Tests {
 
         RuleLoader grl = new GroovyRulesLoader(new File[]{directory});
 
-        Collection<Rule> rules = grl.load();
+        List<Rule> rules = grl.load();
 
         assertNotNull("The loaded rules collection is null.", rules);
         assertNotNull("Directory should not be empty", directory.listFiles());

@@ -6,6 +6,8 @@ import org.bm.rules.Rule
 import org.bm.rules.Status
 import org.bm.rules.impl.DefaultResult
 import org.bm.rules.impl.KeyPairImpl
+import org.springframework.beans.BeansException
+import org.springframework.context.ApplicationContext
 
 /**
  *
@@ -75,4 +77,9 @@ class SimpleRule implements Rule {
         return this.priority.compareTo(o.priority);
     }
 
+    private ApplicationContext applicationContext
+    @Override
+    void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext
+    }
 }

@@ -4,11 +4,12 @@ import com.google.common.collect.Lists;
 import groovy.lang.GroovyClassLoader;
 import org.bm.rules.Rule;
 import org.bm.rules.RuleLoader;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -16,38 +17,45 @@ import java.util.List;
  */
 public class GroovyRulesLoader implements RuleLoader {
 
-   private final FileFilter GROOVY_SCRIPT_FILE_FILTER = new FileFilter() {
-      @Override
-      public boolean accept(File pathname) {
-         return pathname.getName().endsWith(".groovy");
-      }
-   };
-   private final File[] groovyClassDirectories;
-
-   public GroovyRulesLoader(File[] groovyClassDirectories) {
-      this.groovyClassDirectories = groovyClassDirectories;
-   }
+    private final FileFilter GROOVY_SCRIPT_FILE_FILTER = new FileFilter() {
+        @Override
+        public boolean accept(File pathname) {
+            return pathname.getName().endsWith(".groovy");
+        }
+    };
+    private final File[] groovyClassDirectories;
+    protected ApplicationContext context;
 
 
-   @Override
-   public List<Rule> load() throws IOException, IllegalAccessException, InstantiationException {
+    public GroovyRulesLoader(File[] groovyClassDirectories) {
+        this.groovyClassDirectories = groovyClassDirectories;
+    }
 
-      GroovyClassLoader ccl = new GroovyClassLoader(getClass().getClassLoader());
+    @Override
+    public List<Rule> load() throws IOException, IllegalAccessException, InstantiationException {
 
-      List<Rule> rules = Lists.newArrayList();
+        GroovyClassLoader ccl = new GroovyClassLoader(getClass().getClassLoader());
 
-      for (File groovyClassDirectory : groovyClassDirectories) {
-         for (File groovyScript : groovyClassDirectory.listFiles(GROOVY_SCRIPT_FILE_FILTER)) {
+        List<Rule> rules = Lists.newArrayList();
 
-            Class groovyClass = ccl.parseClass(groovyScript);
+        for (File groovyClassDirectory : groovyClassDirectories) {
+            for (File groovyScript : groovyClassDirectory.listFiles(GROOVY_SCRIPT_FILE_FILTER)) {
 
-            if (Rule.class.isAssignableFrom(groovyClass)) {
-               Rule rule = (Rule) groovyClass.newInstance();
-               rules.add(rule);
+                Class groovyClass = ccl.parseClass(groovyScript);
+
+                if (Rule.class.isAssignableFrom(groovyClass)) {
+                    Rule rule = (Rule) groovyClass.newInstance();
+                    rule.setApplicationContext(context);
+                    rules.add(rule);
+                }
             }
-         }
-      }
+        }
 
-      return rules;
-   }
+        return rules;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
+    }
 }

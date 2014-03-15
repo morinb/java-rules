@@ -1,6 +1,7 @@
 package org.bm.rules;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContextAware;
 
 /**
  * Rule interface.<br/>
@@ -8,7 +9,7 @@ import org.apache.log4j.Logger;
  *
  * @author Baptiste Morin
  */
-public interface Rule extends Comparable<Rule> {
+public interface Rule extends Comparable<Rule>, ApplicationContextAware {
     Logger LOG = Logger.getLogger(Rule.class);
 
     /**

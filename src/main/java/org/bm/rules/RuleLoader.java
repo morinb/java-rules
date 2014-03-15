@@ -1,5 +1,7 @@
 package org.bm.rules;
 
+import org.springframework.context.ApplicationContextAware;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
@@ -10,6 +12,6 @@ import java.util.List;
  * @author Baptiste Morin
  *
  */
-public interface RuleLoader {
+public interface RuleLoader extends ApplicationContextAware {
    List<Rule> load() throws IOException, IllegalAccessException, InstantiationException;
 }
