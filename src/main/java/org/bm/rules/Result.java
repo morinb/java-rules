@@ -15,4 +15,6 @@ public interface Result {
 
     void setEntryRuleKeyPair(KeyPair<Entry, Rule> entryRuleKeyPair);
 
+    boolean isError();
+
 }

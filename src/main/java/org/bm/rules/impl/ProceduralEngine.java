@@ -6,8 +6,11 @@ import org.bm.rules.Entry;
 import org.bm.rules.KeyPair;
 import org.bm.rules.Result;
 import org.bm.rules.Rule;
+import org.bm.rules.Status;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,13 +20,18 @@ public class ProceduralEngine implements Engine {
 
 
     @Override
-    public Map<KeyPair<Entry, Rule>, Result> process(Collection<Entry> entries, Collection<Rule> rules) {
+    public Map<KeyPair<Entry, Rule>, Result> process(List<Entry> entries, List<Rule> rules) {
         Map<KeyPair<Entry, Rule>, Result> results = Maps.newHashMap();
+
+        Collections.sort(rules);
 
         for (Entry entry : entries) {
             for (Rule rule : rules) {
                 Result result = rule.apply(entry);
-                results.put(new KeyPairImpl<Entry, Rule>(entry, rule), result);
+                results.put(new KeyPairImpl<>(entry, rule), result);
+                if(stopAfterFirstError() && result.isError()) {
+                    return results;
+                }
             }
         }
         return results;

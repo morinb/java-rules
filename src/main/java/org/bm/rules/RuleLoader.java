@@ -2,6 +2,7 @@ package org.bm.rules;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Interface that describe how to load a set of rules.
@@ -10,5 +11,5 @@ import java.util.Collection;
  *
  */
 public interface RuleLoader {
-   Collection<Rule> load() throws IOException, IllegalAccessException, InstantiationException;
+   List<Rule> load() throws IOException, IllegalAccessException, InstantiationException;
 }

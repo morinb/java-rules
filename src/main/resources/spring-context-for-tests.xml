@@ -10,8 +10,6 @@
         <constructor-arg>
             <value type="java.lang.String">Bonjour, je suis une phrase de test !</value>
         </constructor-arg>
-
-        <!--name="entry" value="Bonjour, je suis une phrase de test !" />-->
     </bean>
 
     <bean id="test-RuleLoader" class="org.bm.rules.impl.GroovyRulesLoader">

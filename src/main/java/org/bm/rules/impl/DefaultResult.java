@@ -9,19 +9,26 @@ import org.bm.rules.Status;
 /**
  * @author Baptiste Morin
  */
-public final class DefaultResult implements Result {
-   private Status status;
-   private KeyPair<Entry, Rule> entryRuleKeyPair;
+public class DefaultResult implements Result {
+    private Status status;
+    private KeyPair<Entry, Rule> entryRuleKeyPair;
 
-   public DefaultResult(Status status, KeyPair<Entry, Rule> entryRuleKeyPair) {
-      this.status = status;
-      this.entryRuleKeyPair = entryRuleKeyPair;
-   }
+    public DefaultResult(Status status, KeyPair<Entry, Rule> entryRuleKeyPair) {
+        if(status == null) {
+            throw new NullPointerException("Status must not be null.");
+        }
 
-   @Override
-   public Status getStatus() {
-      return status;
-   }
+        if(entryRuleKeyPair == null) {
+            throw new NullPointerException("EntryRule KeyPair must not be null");
+        }
+        this.status = status;
+        this.entryRuleKeyPair = entryRuleKeyPair;
+    }
+
+    @Override
+    public Status getStatus() {
+        return status;
+    }
 
     @Override
     public void setStatus(Status status) {
@@ -29,12 +36,17 @@ public final class DefaultResult implements Result {
     }
 
     @Override
-   public KeyPair<Entry, Rule> getEntryRuleKeyPair() {
-      return entryRuleKeyPair;
-   }
+    public KeyPair<Entry, Rule> getEntryRuleKeyPair() {
+        return entryRuleKeyPair;
+    }
 
     @Override
     public void setEntryRuleKeyPair(KeyPair<Entry, Rule> entryRuleKeyPair) {
         throw new UnsupportedOperationException("DefaultResult class is immutable");
+    }
+
+    @Override
+    public boolean isError() {
+        return status.isErrorStatus();
     }
 }

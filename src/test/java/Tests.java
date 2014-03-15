@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -88,7 +89,7 @@ public class Tests {
 
         try {
             Entry sampleEntry = (Entry) context.getBean("test-Entry");
-            Collection<Rule> sampleRules = ((RuleLoader) context.getBean("test-RuleLoader")).load();
+            List<Rule> sampleRules = ((RuleLoader) context.getBean("test-RuleLoader")).load();
 
             Map<KeyPair<Entry, Rule>, Result> results = engine.process(Lists.newArrayList(sampleEntry), sampleRules);
 

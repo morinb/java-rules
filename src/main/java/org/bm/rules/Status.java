@@ -33,4 +33,10 @@ public interface Status {
      * @return String or null.
      */
     String getPossibleResolution();
+
+    /**
+     *
+     * @return true if the status represents an Error status.
+     */
+    boolean isErrorStatus();
 }

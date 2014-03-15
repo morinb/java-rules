@@ -35,7 +35,14 @@ class SimpleRule implements Rule {
             String getPossibleResolution() {
                 return null
             }
+
+            @Override
+            boolean isErrorStatus() {
+                return false
+            }
         }, new KeyPairImpl<Entry, Rule>(entry, this))
+
+
         return result
     }
 
@@ -57,14 +64,15 @@ class SimpleRule implements Rule {
     @Override
     int compareTo(Rule o) {
         // something is always greater than null.
-        if(o == null) {
+        if (o == null) {
             return 1
         }
 
-        if(this == o) {
+        if (this == o) {
             return 0
         }
 
         return this.priority.compareTo(o.priority);
     }
+
 }

@@ -30,7 +30,7 @@ public class GroovyRulesLoader implements RuleLoader {
 
 
    @Override
-   public Collection<Rule> load() throws IOException, IllegalAccessException, InstantiationException {
+   public List<Rule> load() throws IOException, IllegalAccessException, InstantiationException {
 
       GroovyClassLoader ccl = new GroovyClassLoader(getClass().getClassLoader());
 
