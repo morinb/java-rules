@@ -21,7 +21,7 @@ public class ProceduralEngine implements Engine {
 
     @Override
     public Map<KeyPair<Entry, Rule>, Result> process(List<Entry> entries, List<Rule> rules) {
-        Map<KeyPair<Entry, Rule>, Result> results = Maps.newHashMap();
+        Map<KeyPair<Entry, Rule>, Result> results = Maps.newLinkedHashMap();
 
         Collections.sort(rules);
 
