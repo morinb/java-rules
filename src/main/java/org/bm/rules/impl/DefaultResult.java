@@ -25,7 +25,7 @@ public class DefaultResult implements Result {
 
     @Override
     public void setStatus(Status status) {
-        throw new UnsupportedOperationException("DefaultResult class is immutable");
+        this.status = status;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class DefaultResult implements Result {
 
     @Override
     public void setEntryRuleKeyPair(KeyPair<Entry, Rule> entryRuleKeyPair) {
-        throw new UnsupportedOperationException("DefaultResult class is immutable");
+        this.entryRuleKeyPair = entryRuleKeyPair;
     }
 
     @Override
