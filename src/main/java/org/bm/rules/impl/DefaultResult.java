@@ -14,13 +14,6 @@ public class DefaultResult implements Result {
     private KeyPair<Entry, Rule> entryRuleKeyPair;
 
     public DefaultResult(Status status, KeyPair<Entry, Rule> entryRuleKeyPair) {
-        if(status == null) {
-            throw new NullPointerException("Status must not be null.");
-        }
-
-        if(entryRuleKeyPair == null) {
-            throw new NullPointerException("EntryRule KeyPair must not be null");
-        }
         this.status = status;
         this.entryRuleKeyPair = entryRuleKeyPair;
     }
@@ -47,6 +40,9 @@ public class DefaultResult implements Result {
 
     @Override
     public boolean isError() {
+        if(status == null) {
+            return true;
+        }
         return status.isErrorStatus();
     }
 }
