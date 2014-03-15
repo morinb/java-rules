@@ -107,11 +107,7 @@ public class Tests {
 
             LOG.info(resultFormatter.format(result));
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (IOException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
 

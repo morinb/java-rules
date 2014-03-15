@@ -26,6 +26,9 @@ public class ProceduralEngine implements Engine {
         Collections.sort(rules);
 
         for (Entry entry : entries) {
+            if(skipEmptyLines() && entry.getContent().isEmpty()) {
+                continue;
+            }
             for (Rule rule : rules) {
                 Result result = rule.apply(entry);
                 results.put(new KeyPairImpl<>(entry, rule), result);
@@ -41,4 +44,11 @@ public class ProceduralEngine implements Engine {
     public boolean stopAfterFirstError() {
         return false;
     }
+
+    @Override
+    public boolean skipEmptyLines() {
+        return true;
+    }
+
+
 }
