@@ -21,7 +21,7 @@ public interface Rule extends Comparable<Rule>, ApplicationContextAware {
     Result apply(Entry entry);
 
     /**
-     * @return
+     * @return rule's description.
      */
     String getDescription();
 

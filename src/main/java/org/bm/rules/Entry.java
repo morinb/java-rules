@@ -1,8 +1,8 @@
 package org.bm.rules;
 
-import org.apache.log4j.Logger;
-
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 /**
  * The Entry interface, represents the object on which the Rule will be applied.
@@ -23,7 +23,7 @@ public interface Entry {
      * Gets the Entry's metadatas map, that will contains
      * additional informations usable while checking the Entry's validity.
      *
-     * @return
+     * @return metadata map.
      */
     Map<String, Object> getMetaDatas();
 
