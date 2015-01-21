@@ -15,7 +15,8 @@ public class DefaultResultFormatter implements ResultFormatter {
       StringBuilder sb = new StringBuilder();
 
       KeyPair<Entry,Rule> entryRuleKeyPair = result.getEntryRuleKeyPair();
-      sb.append("Result for \n\tEntry (").append(entryRuleKeyPair.getFirst().toString()).append("),\n\tRule (").append(entryRuleKeyPair.getSecond().toString()).append(")\n");
+      sb.append("Result for \n\tEntry (").append(entryRuleKeyPair.getFirst().toString());
+      sb.append("),\n\tRule (").append(entryRuleKeyPair.getSecond().getDescription()).append(")\n");
       sb.append("\tStatus:\tseverity=").append(result.getStatus().getSeverity()).append("\n");
       sb.append("\t\t\t\tdescription=").append(result.getStatus().getDescription()).append("\n");
       sb.append("\t\t\t\tpossible resolution=").append(result.getStatus().getPossibleResolution()).append("\n");
